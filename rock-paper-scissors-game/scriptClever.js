@@ -106,15 +106,24 @@ function playGame() {
   // 3. Call the onClickRPS function every time someone clicks
   // 4. Make sure to pass the currently selected rps button as an argument
   rpsButtons.forEach(rpsButtons => {rpsButtons.onclick = () => onClickRPS(rpsButtons.value)})
-
-
-  // Add a click listener to the end game button that runs the endGame() function on click
+    
   
+  // Add a click listener to the end game button that runs the endGame() function on click
+  const endGameButton = document.getElementById("endGameButton")
+  endGameButton.onclick = () => endGame(totalScore)
 }
 
 // ** endGame function clears all the text on the DOM **
-function endGame() {
-  
+function endGame(totalScore) {
+  totalScore['playerScore'] = 0
+  totalScore['computerScore'] = 0
+
+  const resultDiv = document.getElementById("result")
+  const handsDiv = document.getElementById("hands")
+  const playerScoreDiv = document.getElementById("player-score")
+  resultDiv.innerText = ""
+  handsDiv.innerText = ""
+  playerScoreDiv.innerText = ""
 }
 
 playGame()
